@@ -14,7 +14,7 @@ export default {
   },
   data() {
     return {
-      //title: 'Click to view ultimate ability'
+      
     }
   },
   methods: {

@@ -37,7 +37,6 @@ export default {
     },
     closeMenu: function () {
       this.isActive = false
-      // $('.collapse').removeClass('show')
     }
   }
 }
