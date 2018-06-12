@@ -1,7 +1,6 @@
 <template>
   <div>
     <h2>Welcome!</h2>
-    <p>How you doin'?</p>
   </div>
 </template>
 

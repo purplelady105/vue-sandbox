@@ -1,5 +1,5 @@
 <template>
-  <div class="div-block text-center">
+  <div class="div-block text-center mb-3 bordered-div">
     <slot name="title"></slot>
     <h1>This is a Form Helper</h1>
     <slot name="text"></slot>
