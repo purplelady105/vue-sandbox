@@ -1,12 +1,12 @@
 <template>
   <div>
     <navbar-top @clicked="navigateToPage"></navbar-top>
-    <form-helper class="bordered-div">
+    <form-helper>
       <h2 slot="title">{{ title }}</h2>
       <p slot="text">
         <em>This is my sandbox.</em>
       </p>
-    </form-helper><br />
+    </form-helper>
     <keep-alive>
       <component v-bind:is="page" class="bordered-div div-block"></component>
     </keep-alive>
@@ -47,7 +47,7 @@ export default {
         {name:'Widowmaker',role:'Defense',ultimate:'Infra-Sight',show:false},
         {name:'Zarya',role:'Tank',ultimate:'Graviton Surge',show:false}
       ],
-      title: "Welcome"
+      title: "VueJS Sandbox"
     }
   },
   methods: {
