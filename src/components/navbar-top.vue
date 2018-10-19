@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-				<a v-on:click="navigateTo('')" href="#" class="navbar-brand"><i class="fab fa-vuejs"></i> {{ title }}</a>
+				<a v-on:click="navigateTo('')" href="#" class="navbar-brand"><i class="fab fa-vuejs"></i> {{ title }} <span id="hacked"><img src="../assets/hacked.png" /></span></a>
 				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 				</button>
@@ -60,6 +60,10 @@ export default {
 </script>
 
 <style scoped>
+#hacked>img {
+	height: 50%;
+	width: auto;
+}
 .btn-circle.btn-xl {
 		width: 70px;
 		height: 70px;
