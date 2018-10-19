@@ -1,22 +1,29 @@
 <template>
-  <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-      <a v-on:click="navigateTo('')" href="#" class="navbar-brand"><i class="fab fa-vuejs"></i> {{ title }}</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <button v-on:click="clickAction()" class="navbar-toggler pull-xs-right" id="navbarSideButton" type="button"><i class="fas fa-compass"></i></button>
-      <!-- navbar-side -->
-      <ul v-bind:class="{ reveal:isActive }" class="navbar-side" id="navbarSide">
-        <li v-for="link in links" class="navbar-side-item">
-          <a v-on:click="navigateTo(link.page),closeMenu()" href="#" class="side-link"><i v-bind:class="link.icon"></i> {{ link.title }}</a>
-        </li>
-      </ul>
-      <div v-show="isActive" v-on:click="isActive = !isActive" class="overlay"></div>
-  </nav>
+  <div>
+    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+        <a v-on:click="navigateTo('')" href="#" class="navbar-brand"><i class="fab fa-vuejs"></i> {{ title }}</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <button v-on:click="clickAction()" class="navbar-toggler pull-xs-right" id="navbarSideButton" type="button"><i class="fas fa-compass"></i></button>
+        <!-- menu items -->
+        <ul v-bind:class="{ reveal:isActive }" class="navbar-side" id="navbarSide">
+          <li v-for="link in links" class="navbar-side-item">
+            <a v-on:click="navigateTo(link.page),closeMenu()" href="#" class="side-link"><i v-bind:class="link.icon"></i> {{ link.title }}</a>
+          </li>
+        </ul>
+        <div v-show="isActive" v-on:click="isActive = !isActive" class="overlay"></div>
+    </nav>
+    <button v-on:click="takeScreenshot()" class="btn btn-primary btn-circle" title="Take a screenshot">
+      <i class="fas fa-lg fa-camera"></i>
+    </button>
+  </div>
 </template>
 
 <script>
 /* eslint-disable */
+import html2canvas from 'html2canvas'
+
 export default {
   data() {
     return {
@@ -29,20 +36,48 @@ export default {
     }
   },
   methods: {
-    clickAction: function () {
+    clickAction() {
       this.isActive = !this.isActive
     },
-    navigateTo: function (pageTitle) {
+    navigateTo(pageTitle) {
       this.$emit('clicked', pageTitle)
     },
-    closeMenu: function () {
+    closeMenu() {
       this.isActive = false
+    },
+    takeScreenshot() {
+      /*html2canvas(document.body).then(function(canvas) {
+        document.body.appendChild(canvas)
+      })*/
+      html2canvas(document.body).then(function(canvas) {
+        var img = canvas.toDataURL("image/png")
+        console.log(img)
+        // window.open(img);
+      })
     }
   }
 }
 </script>
 
 <style scoped>
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
 a {
   color: #D6C9D1;
 }
