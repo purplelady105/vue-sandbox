@@ -5,6 +5,6 @@ import App from './App.vue'
 //Vue.component('ninjas', Ninjas)
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
+	el: '#app',
+	render: h => h(App)
 })
