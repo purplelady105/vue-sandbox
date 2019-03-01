@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
+import router from './router'
+import store from './store'
 
-/*Globally register component from Ninjas.vue*/
-//Vue.component('ninjas', Ninjas)
+Vue.config.productionTip = false
 
 new Vue({
+	router,
+	store,
 	el: '#app',
 	render: h => h(App)
 })

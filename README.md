@@ -1,4 +1,4 @@
-# myapp-cli3
+# vue-sandbox
 
 ## Project setup
 ```
