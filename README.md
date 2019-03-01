@@ -1,6 +1,6 @@
 # vuejs-sandbox
 
-> A Vue.js project
+> My sandbox for testing Vue and Vuetify things
 
 ## Build Setup
 
